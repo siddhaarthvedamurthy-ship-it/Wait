@@ -766,10 +766,142 @@ const CIVS = {
       }
     ],
     stars: [
-      { name: 'Chak Ek\'', modern: 'Venus (morning/evening star)', ra0: 180.0, dec0: -2.0, mag: -4.6, color: '#80FF80', myth: 'Chak Ek\' ("Great Star" or "Red/Black Star") — Venus as Kukulkan/Quetzalcoatl. The Maya tracked Venus to within 2 hours accuracy over 500 years without telescopes. The Dresden Codex Venus Tables predict all Venus apparitions for 65 cycles (104 years). When Venus first rose as Morning Star, it was considered dangerous — associated with warfare and sacrifice. Rulers timed their wars to Venus\'s heliacal rise.', mass: '4.87×10²⁴ kg', distance: '38.2 million km (avg to Earth)', radius: '6051 km' },
-      { name: 'Ak Ek\'', modern: 'Milky Way (Xibalba Be)', ra0: 270.0, dec0: -29.0, mag: 0, color: '#C8F8FF', myth: 'The Milky Way is the "Road to Xibalba" (the Black Road) and the World Tree (Wakah-Chan). When the Milky Way stood upright on the horizon at dusk in August, it represented the Crocodile Tree of creation. The Dark Rift (the dark cloud nebula in the Milky Way near Sagittarius) was the "Black Road," the entrance to the underworld.', mass: 'N/A (galaxy feature)', distance: '26,000 ly (galactic center)', radius: 'N/A' },
-      { name: 'Ek\' Chuah Ek\'', modern: 'Scorpius (tail stars)', ra0: 247.35, dec0: -26.43, mag: 1.06, color: '#FF6040', myth: 'The Scorpion constellation in Maya astronomy was a great turtle or sometimes a scorpion — associated with the Underworld. Antares (heart of Scorpius) was identified with one of the Lords of Xibalba. The Maya recognized the dark nebulae as constellations — the Scorpion and the Centipede were "dark constellations" traced by the absence of stars in the Milky Way.', mass: '12.4 M☉ (Antares)', distance: '550 ly', radius: '700 R☉' }
-    ],
+  {
+    "mayaName": "K'ak'al Ek'",
+    "literalMeaning": "The Fire Star",
+    "modernName": "Alcyone (Eta Tauri)",
+    "rightAscension": "03h 47m 29.1s",
+    "declination": "+24° 06' 18\"",
+    "magnitude": 2.85,
+    "mythology": "The main star of 'Tzab-ek' (Rattlesnake's Tail). It was tracked meticulously to mark the exact onset of the heavy rainy season."
+  },
+  {
+    "mayaName": "Koba",
+    "literalMeaning": "The Tail End Star",
+    "modernName": "Atlas (27 Tauri)",
+    "rightAscension": "03h 49m 09.7s",
+    "declination": "+24° 03' 12\"",
+    "magnitude": 3.62,
+    "mythology": "Tracked as the final rattle joint on the cosmic rattlesnake, serving as a critical marker for horizon-clearing calculations."
+  },
+  {
+    "mayaName": "K'ak'upal K'atun",
+    "literalMeaning": "First Hearthstone of Creation",
+    "modernName": "Alnitak (Zeta Orionis)",
+    "rightAscension": "05h 40m 45.5s",
+    "declination": "-01° 56' 34\"",
+    "magnitude": 1.74,
+    "mythology": "Personified as the first of three sacred kitchen stones placed by the gods to support the weight of the cosmos."
+  },
+  {
+    "mayaName": "Oxib Xk'ub",
+    "literalMeaning": "The Center Hearthstone",
+    "modernName": "Alnilam (Epsilon Orionis)",
+    "rightAscension": "05h 36m 12.8s",
+    "declination": "-01° 12' 07\"",
+    "magnitude": 1.69,
+    "mythology": "Personified as the middle foundation stone of the celestial hearth, surrounding the primordial smoke of the Orion nebula."
+  },
+  {
+    "mayaName": "Yax K'ub",
+    "literalMeaning": "The Third Hearthstone",
+    "modernName": "Mintaka (Delta Orionis)",
+    "rightAscension": "05h 32m 00.4s",
+    "declination": "-00° 17' 57\"",
+    "magnitude": 2.23,
+    "mythology": "The final stone completing the cosmic fireplace triangle where life and the universe were first cooked by the gods."
+  },
+  {
+    "mayaName": "K'awiil's Torch",
+    "literalMeaning": "The Lightning Spark",
+    "modernName": "Rigel (Beta Orionis)",
+    "rightAscension": "05h 14m 32.3s",
+    "declination": "-08° 12' 06\"",
+    "magnitude": 0.13,
+    "mythology": "Personified as the bright, flashing foot of the lightning god K'awiil, who struck the earth to crack it open and create maize."
+  },
+  {
+    "mayaName": "Xaman Ek'",
+    "literalMeaning": "The North Star",
+    "modernName": "Polaris (Alpha Ursae Minoris)",
+    "rightAscension": "02h 31m 49.1s",
+    "declination": "+89° 15' 51\"",
+    "magnitude": 1.97,
+    "mythology": "Personified as the flat-nosed god of merchants and travellers. It was vital for navigation because it never moves from the north sky."
+  },
+  {
+    "mayaName": "Wuqub Caquix (Head)",
+    "literalMeaning": "Seven Macaw's Head",
+    "modernName": "Dubhe (Alpha Ursae Majoris)",
+    "rightAscension": "11h 03m 43.7s",
+    "declination": "+61° 45' 03\"",
+    "magnitude": 1.79,
+    "mythology": "Personified as the proud eye of the false-sun bird demon. When it dipped below the northern horizon, it signaled a vital seasonal shift."
+  },
+  {
+    "mayaName": "Wuqub Caquix (Plume)",
+    "literalMeaning": "The Demon's Plume",
+    "modernName": "Alioth (Epsilon Ursae Majoris)",
+    "rightAscension": "12h 54m 01.7s",
+    "declination": "+55° 57' 35\"",
+    "magnitude": 1.76,
+    "mythology": "Mapped as the glittering, boastful tail feathers of the demonic bird Seven Macaw, dominating the northern sky."
+  },
+  {
+    "mayaName": "Chimalmat",
+    "literalMeaning": "The Shield Star",
+    "modernName": "Kochab (Beta Ursae Minoris)",
+    "rightAscension": "14h 50m 42.3s",
+    "declination": "+74° 09' 20\"",
+    "magnitude": 2.07,
+    "mythology": "Personified as the loyal wife of Seven Macaw, holding up the protective northern shield constellation."
+  },
+  {
+    "mayaName": "Sina'an Ch'ich'",
+    "literalMeaning": "The Scorpion's Sting",
+    "modernName": "Antares (Alpha Scorpii)",
+    "rightAscension": "16h 29m 24.4s",
+    "declination": "-26° 25' 55\"",
+    "magnitude": 1.06,
+    "mythology": "Personified as the venomous, glowing red eye or stinger of the giant celestial scorpion constellation."
+  },
+  {
+    "mayaName": "Aak Ixtutz",
+    "literalMeaning": "The Turtle's Right Eye",
+    "modernName": "Castor (Alpha Geminorum)",
+    "rightAscension": "07h 34m 36.0s",
+    "declination": "+31° 53' 18\"",
+    "magnitude": 1.58,
+    "mythology": "Personified as the right eye of a giant cosmic turtle. This celestial turtle carried the maize god safely across the sky."
+  },
+  {
+    "mayaName": "Aak Ixone",
+    "literalMeaning": "The Turtle's Left Eye",
+    "modernName": "Pollux (Beta Geminorum)",
+    "rightAscension": "07h 45m 18.9s",
+    "declination": "+28° 01' 34\"",
+    "magnitude": 1.14,
+    "mythology": "Paired with Castor to track the celestial turtle’s slow rotation along the cosmic current."
+  },
+  {
+    "mayaName": "Pek Ch'umil",
+    "literalMeaning": "The Fire Dog's Eye",
+    "modernName": "Regulus (Alpha Leonis)",
+    "rightAscension": "10h 08m 22.3s",
+    "declination": "+11° 58' 02\"",
+    "magnitude": 1.35,
+    "mythology": "Personified as the blazing eye of the celestial dog deity who brought destructive lightning storms down to Earth."
+  },
+  {
+    "mayaName": "Mo' Ch'umil",
+    "literalMeaning": "The Macaw's Heart",
+    "modernName": "Spica (Alpha Virginis)",
+    "rightAscension": "13h 25m 11.6s",
+    "declination": "-11° 09' 41\"",
+    "magnitude": 0.98,
+    "mythology": "Personified as the brilliant heart-center of the divine Macaw bird flying along the zodiac line."
+  }
+],
     calendar: {
       title: 'Maya Calendar System — Tzolk\'in, Haab\' and Long Count',
       system: 'The Maya calendar system is the most sophisticated indigenous calendar ever devised. Three interlocking systems operate simultaneously: Tzolk\'in (260 days), Haab\' (365 days), and the Long Count — a linear count of days from the Creation Date (11 August 3114 BCE in the GMT correlation), capable of tracking millions of years.',
