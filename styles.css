@@ -1,0 +1,897 @@
+/* ============================================================
+   PANTHEON OF THE SKIES — styles.css
+   Production-grade archaeo-astronomy simulator
+   ============================================================ */
+
+/* --- RESET & BASE --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* ACTIVE CIVILIZATION VARIABLES — overridden by JS */
+  --acc1: #E8A838;
+  --acc2: #C0392B;
+  --acc3: #F5D78E;
+  --bg-dark: #0B0704;
+  --bg-mid: #1A1008;
+  --glass-bg: rgba(20, 12, 4, 0.72);
+  --glass-border: rgba(232, 168, 56, 0.3);
+  --text-main: #F5ECD8;
+  --text-muted: #A89070;
+  --font-heading: 'Cinzel Decorative', serif;
+  --font-body: 'IM Fell English', serif;
+  --font-mono: 'Courier New', monospace;
+  --transition-fast: 0.25s ease;
+  --transition-slow: 0.6s cubic-bezier(0.22,1,0.36,1);
+  --radius: 12px;
+  --radius-sm: 6px;
+}
+
+html { font-size: 14px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* --- STAR CANVAS BACKGROUND --- */
+#star-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+/* --- FULL-SCREEN BG LAYER --- */
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity var(--transition-slow), background-image var(--transition-slow);
+  opacity: 0.18;
+}
+
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(ellipse at 50% 0%, transparent 20%, var(--bg-dark) 90%);
+  pointer-events: none;
+}
+
+/* --- APP WRAPPER --- */
+#app {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.app-header {
+  background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, transparent 100%);
+  padding: 1.4rem 2rem 1rem;
+  border-bottom: 1px solid var(--glass-border);
+  transition: border-color var(--transition-slow);
+}
+
+.header-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  color: var(--acc1);
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+  opacity: 0.8;
+  transition: color var(--transition-slow);
+}
+
+.header-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3vw, 2.6rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--acc1) 0%, var(--acc3) 50%, var(--acc1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  text-shadow: none;
+  transition: background var(--transition-slow);
+}
+
+.header-tagline {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  letter-spacing: 0.1em;
+}
+
+.header-epoch {
+  text-align: right;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 1.2rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  transition: border-color var(--transition-slow);
+}
+
+.epoch-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.epoch-display {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--acc1);
+  font-weight: 700;
+  transition: color var(--transition-slow);
+}
+
+/* ============================================================
+   CIVILIZATION NAV
+   ============================================================ */
+.civ-nav {
+  background: rgba(0,0,0,0.6);
+  border-bottom: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: border-color var(--transition-slow);
+}
+
+.civ-nav-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0.15rem;
+  padding: 0.5rem 1rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.civ-nav-inner::-webkit-scrollbar { display: none; }
+
+.civ-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.45rem 0.9rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.civ-btn:hover {
+  color: var(--acc1);
+  border-color: var(--glass-border);
+  background: rgba(255,255,255,0.04);
+}
+
+.civ-btn.active {
+  color: var(--acc1);
+  border-color: var(--acc1);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 0 18px -4px var(--acc1);
+}
+
+.civ-btn-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.civ-btn-label { line-height: 1; }
+
+/* ============================================================
+   MAIN CONTENT GRID
+   ============================================================ */
+.main-content {
+  flex: 1;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 1.4rem 1.2rem;
+  display: grid;
+  grid-template-columns: 320px 1fr 340px;
+  gap: 1.2rem;
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .main-content { grid-template-columns: 1fr 1fr; }
+  .calendar-section { grid-column: 1 / -1; }
+}
+@media (max-width: 700px) {
+  .main-content { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   SECTION SHARED STYLES
+   ============================================================ */
+.deity-section,
+.starmap-section,
+.calendar-section {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  backdrop-filter: blur(14px);
+  transition: border-color var(--transition-slow), background var(--transition-slow);
+}
+
+.section-header {
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--acc1);
+  transition: color var(--transition-slow);
+}
+
+.section-rule {
+  height: 1px;
+  background: linear-gradient(90deg, var(--acc1), transparent);
+  margin-top: 0.5rem;
+  transition: background var(--transition-slow);
+}
+
+/* ============================================================
+   DEITY GRID & CARDS
+   ============================================================ */
+.deity-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.deity-card {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.deity-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--acc1) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.deity-card:hover {
+  border-color: var(--acc1);
+  box-shadow: 0 0 20px -6px var(--acc1);
+  transform: translateX(3px);
+}
+
+.deity-card:hover::before { opacity: 0.06; }
+
+.deity-img-wrap {
+  width: 68px;
+  height: 80px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.deity-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
+}
+
+.deity-card:hover .deity-img-wrap img {
+  transform: scale(1.08);
+}
+
+.deity-img-placeholder {
+  font-size: 2rem;
+  color: var(--acc1);
+  opacity: 0.4;
+}
+
+.deity-info { flex: 1; min-width: 0; }
+
+.deity-name {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  color: var(--acc1);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  transition: color var(--transition-slow);
+}
+
+.deity-role {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 0.15rem;
+  line-height: 1.3;
+}
+
+.deity-domain-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.4rem;
+}
+
+.deity-tag {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   STAR MAP
+   ============================================================ */
+.time-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.slider-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+
+#epoch-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  background: linear-gradient(90deg, var(--acc1), var(--acc2));
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+#epoch-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--acc1);
+  box-shadow: 0 0 10px var(--acc1);
+  cursor: pointer;
+  transition: background var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+#epoch-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--acc1);
+  box-shadow: 0 0 10px var(--acc1);
+  cursor: pointer;
+  border: none;
+}
+
+.starmap-container {
+  position: relative;
+  width: 100%;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 50%, #0a0a1f 0%, #020208 100%);
+  transition: border-color var(--transition-slow);
+}
+
+#starmap-canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: crosshair;
+}
+
+.star-labels { position: absolute; inset: 0; pointer-events: none; }
+
+.star-info-bar {
+  margin-top: 0.6rem;
+  padding: 0.5rem 0.8rem;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-align: center;
+  min-height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition-slow);
+}
+
+/* ============================================================
+   TABS
+   ============================================================ */
+.tab-bar {
+  display: flex;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 0.5rem;
+}
+
+.tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.75rem;
+  text-transform: uppercase;
+  transition: all var(--transition-fast);
+}
+
+.tab-btn:hover { color: var(--acc1); }
+
+.tab-btn.active {
+  color: var(--acc1);
+  border-color: var(--acc1);
+  background: rgba(255,255,255,0.04);
+}
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ============================================================
+   CALENDAR CONTENT
+   ============================================================ */
+.calendar-content,
+.cycles-content,
+.lore-content {
+  font-size: 0.8rem;
+  color: var(--text-main);
+  line-height: 1.7;
+}
+
+.cal-block {
+  margin-bottom: 1.1rem;
+}
+
+.cal-block-title {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  color: var(--acc1);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+  transition: color var(--transition-slow);
+}
+
+.cal-block-body {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  line-height: 1.65;
+}
+
+.cal-math {
+  background: rgba(0,0,0,0.35);
+  border-left: 2px solid var(--acc1);
+  padding: 0.5rem 0.8rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--acc3);
+  margin-top: 0.4rem;
+  line-height: 1.8;
+  transition: border-color var(--transition-slow), color var(--transition-slow);
+}
+
+.cycle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.76rem;
+}
+
+.cycle-name { color: var(--acc1); font-family: var(--font-heading); font-size: 0.7rem; }
+.cycle-val { font-family: var(--font-mono); color: var(--text-muted); }
+
+/* ============================================================
+   MODAL — GLASSMORPHIC
+   ============================================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.hidden {
+  display: none;
+}
+
+.modal-glass {
+  background: rgba(10, 8, 4, 0.82);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  backdrop-filter: blur(24px);
+  box-shadow: 0 0 60px -10px var(--acc1), 0 30px 80px rgba(0,0,0,0.8);
+  max-width: 640px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 2rem;
+  position: relative;
+  animation: modal-in 0.35s cubic-bezier(0.22,1,0.36,1) both;
+  scrollbar-width: thin;
+  scrollbar-color: var(--acc1) transparent;
+  transition: border-color var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.92) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+.modal-close:hover { color: var(--acc1); border-color: var(--acc1); }
+
+/* Modal content styles */
+.modal-content .modal-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.2rem;
+  border: 1px solid var(--glass-border);
+}
+
+.modal-content .modal-heading {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  background: linear-gradient(135deg, var(--acc1), var(--acc3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.2rem;
+  transition: background var(--transition-slow);
+}
+
+.modal-content .modal-sub {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  margin-bottom: 1rem;
+}
+
+.modal-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.modal-stat-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.8rem;
+}
+
+.modal-stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.15rem;
+}
+
+.modal-stat-value {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  color: var(--acc1);
+  transition: color var(--transition-slow);
+}
+
+.modal-lore {
+  font-size: 0.82rem;
+  color: var(--text-main);
+  line-height: 1.75;
+  font-style: italic;
+  border-left: 2px solid var(--acc1);
+  padding-left: 0.9rem;
+  margin-top: 1rem;
+  transition: border-color var(--transition-slow);
+}
+
+.modal-section-title {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--acc1);
+  margin: 1rem 0 0.5rem;
+  transition: color var(--transition-slow);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.app-footer {
+  background: rgba(0,0,0,0.7);
+  border-top: 1px solid var(--glass-border);
+  padding: 0.7rem 2rem;
+  transition: border-color var(--transition-slow);
+}
+
+.footer-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  gap: 1rem;
+}
+
+.footer-civ-name {
+  color: var(--acc1);
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: color var(--transition-slow);
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--acc1); border-radius: 3px; opacity: 0.5; }
+
+/* ============================================================
+   CIVILIZATION THEME CLASSES
+   Applied to <body> by JS
+   ============================================================ */
+
+/* VEDIC INDIA */
+body.theme-vedic {
+  --acc1: #E8A838;
+  --acc2: #C0392B;
+  --acc3: #F5D78E;
+  --bg-dark: #0B0704;
+  --bg-mid: #1A1008;
+  --glass-bg: rgba(20, 12, 4, 0.75);
+  --glass-border: rgba(232, 168, 56, 0.3);
+  --font-heading: 'Cinzel Decorative', serif;
+}
+
+/* ANCIENT EGYPT */
+body.theme-egypt {
+  --acc1: #1D4FA3;
+  --acc2: #C8A951;
+  --acc3: #A8C8E8;
+  --bg-dark: #050810;
+  --bg-mid: #0A1020;
+  --glass-bg: rgba(5, 8, 18, 0.78);
+  --glass-border: rgba(29, 79, 163, 0.4);
+  --font-heading: 'Cinzel', serif;
+}
+
+/* CLASSICAL GREECE */
+body.theme-greece {
+  --acc1: #C8B8A0;
+  --acc2: #8B6914;
+  --acc3: #E8DDD0;
+  --bg-dark: #080808;
+  --bg-mid: #141414;
+  --glass-bg: rgba(8, 8, 8, 0.78);
+  --glass-border: rgba(200, 184, 160, 0.3);
+  --font-heading: 'Cinzel', serif;
+}
+
+/* BABYLONIA */
+body.theme-babylon {
+  --acc1: #C4613A;
+  --acc2: #8B4020;
+  --acc3: #E8A870;
+  --bg-dark: #080400;
+  --bg-mid: #140800;
+  --glass-bg: rgba(12, 6, 2, 0.78);
+  --glass-border: rgba(196, 97, 58, 0.35);
+  --font-heading: 'Cinzel', serif;
+}
+
+/* AZTEC */
+body.theme-aztec {
+  --acc1: #1FA8A8;
+  --acc2: #0A2020;
+  --acc3: #4FFFFF;
+  --bg-dark: #020808;
+  --bg-mid: #041010;
+  --glass-bg: rgba(2, 8, 8, 0.8);
+  --glass-border: rgba(31, 168, 168, 0.35);
+  --font-heading: 'Cinzel Decorative', serif;
+}
+
+/* MAYA */
+body.theme-maya {
+  --acc1: #2E8B57;
+  --acc2: #1A5C38;
+  --acc3: #7EBC8E;
+  --bg-dark: #020805;
+  --bg-mid: #041008;
+  --glass-bg: rgba(2, 8, 5, 0.8);
+  --glass-border: rgba(46, 139, 87, 0.35);
+  --font-heading: 'Cinzel', serif;
+}
+
+/* INCA */
+body.theme-inca {
+  --acc1: #E8C820;
+  --acc2: #A09898;
+  --acc3: #FFF0A0;
+  --bg-dark: #080700;
+  --bg-mid: #141200;
+  --glass-bg: rgba(10, 9, 2, 0.8);
+  --glass-border: rgba(232, 200, 32, 0.35);
+  --font-heading: 'Cinzel', serif;
+}
+
+/* DRAVIDIAN */
+body.theme-dravidian {
+  --acc1: #B85C28;
+  --acc2: #6B1020;
+  --acc3: #E88060;
+  --bg-dark: #080302;
+  --bg-mid: #140804;
+  --glass-bg: rgba(8, 3, 2, 0.8);
+  --glass-border: rgba(184, 92, 40, 0.38);
+  --font-heading: 'Cinzel Decorative', serif;
+}
+
+/* SOUTHEAST ASIA */
+body.theme-seasia {
+  --acc1: #28A878;
+  --acc2: #6B4828;
+  --acc3: #78E8B8;
+  --bg-dark: #020806;
+  --bg-mid: #041008;
+  --glass-bg: rgba(2, 8, 6, 0.8);
+  --glass-border: rgba(40, 168, 120, 0.35);
+  --font-heading: 'Cinzel', serif;
+}
+
+/* IMPERIAL CHINA */
+body.theme-china {
+  --acc1: #C81428;
+  --acc2: #287828;
+  --acc3: #E85060;
+  --bg-dark: #080202;
+  --bg-mid: #140404;
+  --glass-bg: rgba(8, 2, 2, 0.8);
+  --glass-border: rgba(200, 20, 40, 0.38);
+  --font-heading: 'Cinzel Decorative', serif;
+}
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+.hidden { display: none !important; }
+.text-acc { color: var(--acc1); }
+.italic { font-style: italic; }
+.mt1 { margin-top: 0.5rem; }
+.mt2 { margin-top: 1rem; }
+
+/* Cosmic glow pulse on active star */
+@keyframes star-pulse {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+/* Section fade-in when civilization changes */
+@keyframes section-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.section-anim {
+  animation: section-in 0.45s ease both;
+}
