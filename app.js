@@ -605,10 +605,97 @@ const CIVS = {
       }
     ],
     stars: [
-      { name: 'Tianquiztli', modern: 'Pleiades (η Tauri)', ra0: 56.87, dec0: 24.1, mag: 1.6, color: '#40FFFF', myth: 'Tianquiztli ("The Marketplace") — the Pleiades were central to Aztec cosmology. Every 52 years, the New Fire Ceremony (Xiuhmolpilli) waited until the Pleiades crossed the zenith at midnight on the night the 52-year cycle ended. Priests atop Huixachtlan hill watched — if they rose, the sun would rise again and the world would not end.', mass: '6 M☉', distance: '444 ly', radius: '10 R☉' },
-      { name: 'Citlaltlachtli', modern: 'Orion (Scorpion constellation)', ra0: 85.19, dec0: -1.94, mag: 1.74, color: '#FF8060', myth: 'The Celestial Ballcourt — Orion\'s Belt represented the Aztec ballgame court in the sky. The ballgame (tlachtli) was a cosmic ritual — the ball represented the sun, players were gods, and losing teams were sometimes sacrificed. Orion\'s rising governed the timing of major ceremonies.', mass: '33 M☉', distance: '1260 ly', radius: '20 R☉' },
-      { name: 'Xonecuilli', modern: 'Ursa Minor (Little Bear)', ra0: 217.0, dec0: 74.16, mag: 2.02, color: '#80FFFF', myth: 'Xonecuilli ("Twisted Thing") — the crooked constellation Ursa Minor represented the S-shaped constellation of the crippled god Xolotl. Its circumpolar nature (never setting in Mesoamerican latitudes) made it a reliable navigation and time-keeping reference for Aztec priests.', mass: '7.6 M☉ (Kochab)', distance: '131 ly', radius: '42.6 R☉' }
-    ],
+  {
+    "aztecName": "Yohualtecuhtli",
+    "literalMeaning": "Lord of the Night",
+    "modernName": "Alcyone (Eta Tauri)",
+    "rightAscension": "03h 47m 29.1s",
+    "declination": "+24° 06' 18\"",
+    "magnitude": 2.85,
+    "mythology": "Personified as the supreme nocturnal ruler. This exact star had to cross the meridian (center of the sky) at midnight during the New Fire Ceremony to guarantee the sun would rise and the universe would not end."
+  },
+  {
+    "aztecName": "Yacahuiztli",
+    "literalMeaning": "The Sharp Nose / Thorn",
+    "modernName": "Atlas (27 Tauri)",
+    "rightAscension": "03h 49m 09.7s",
+    "declination": "+24° 03' 12\"",
+    "magnitude": 3.62,
+    "mythology": "Personified as a sharp cosmic piercing instrument. It guarded the outer edge of 'Tianquiztli' (The Marketplace cluster / Pleiades), symbolizing defensive barriers and sacrifice."
+  },
+  {
+    "aztecName": "Mixcóatl",
+    "literalMeaning": "Cloud Serpent",
+    "modernName": "Polaris (Alpha Ursae Minoris)",
+    "rightAscension": "02h 31m 49.1s",
+    "declination": "+89° 15' 51\"",
+    "magnitude": 1.97,
+    "mythology": "Personified as the primary god of the hunt and war. Because it remains stationary while the rest of the night sky rotates around it, the Aztecs saw it as the pivotal central axis holding up the heavens."
+  },
+  {
+    "aztecName": "Tezcatlipoca",
+    "literalMeaning": "The Smoking Mirror",
+    "modernName": "Alioth (Epsilon Ursae Majoris)",
+    "rightAscension": "12h 54m 01.7s",
+    "declination": "+55° 57' 35\"",
+    "magnitude": 1.76,
+    "mythology": "Personified as the missing foot or glowing eye of the supreme, all-powerful creator god Tezcatlipoca, who took the physical form of a massive celestial jaguar roaming the northern sky."
+  },
+  {
+    "aztecName": "Coyolxāuhqui",
+    "literalMeaning": "Painted with Bells",
+    "modernName": "Dubhe (Alpha Ursae Majoris)",
+    "rightAscension": "11h 03m 43.7s",
+    "declination": "+61° 45' 03\"",
+    "magnitude": 1.79,
+    "mythology": "Personified as a severed limb of the defeated moon goddess. Her body was dismembered by the sun god Huitzilopochtli and cast into the freezing northern sky as stars."
+  },
+  {
+    "aztecName": "Citlalcolotl",
+    "literalMeaning": "The Scorpion Deceiver",
+    "modernName": "Antares (Alpha Scorpii)",
+    "rightAscension": "16h 29m 24.4s",
+    "declination": "-26° 25' 55\"",
+    "magnitude": 1.06,
+    "mythology": "Personified as the fiery, glowing heart-eye of a giant celestial scorpion. Its distinct red coloration associated it directly with fire, destruction, and impending danger."
+  },
+  {
+    "aztecName": "Mamalhuaztli",
+    "literalMeaning": "The Sacred Fire Drill",
+    "modernName": "Alnilam (Epsilon Orionis)",
+    "rightAscension": "05h 36m 12.8s",
+    "declination": "-01° 12' 07\"",
+    "magnitude": 1.69,
+    "mythology": "Personified as the central tip of the divine wooden tool used by the gods to drill into a sacrificial chest and strike the first spark of creation to renew the world."
+  },
+  {
+    "aztecName": "Huitznāhua",
+    "literalMeaning": "Southern Thorn Brother",
+    "modernName": "Betelgeuse (Alpha Orionis)",
+    "rightAscension": "05h 55m 10.3s",
+    "declination": "+07° 24' 25\"",
+    "magnitude": 0.50,
+    "mythology": "Personified as one of the Centzon Huitznāhua (the 400 Southern Star Gods). He was a warrior brother slain by the sun god and permanently banished to the southern night sky."
+  },
+  {
+    "aztecName": "Citlallātonac",
+    "literalMeaning": "Star That Shines",
+    "modernName": "Castor (Alpha Geminorum)",
+    "rightAscension": "07h 34m 36.0s",
+    "declination": "+31° 53' 18\"",
+    "magnitude": 1.58,
+    "mythology": "Personified alongside his female counterpart as the male creator god of the stars, acting as a crucial structural pillar for the cosmic ballcourt."
+  },
+  {
+    "aztecName": "Citlalicue",
+    "literalMeaning": "Her Skirt is Stars",
+    "modernName": "Pollux (Beta Geminorum)",
+    "rightAscension": "07h 45m 18.9s",
+    "declination": "+28° 01' 34\"",
+    "magnitude": 1.14,
+    "mythology": "Personified as the Milky Way mother goddess who originally created the stars. In Gemini, she stands directly opposite Castor to maintain the cosmic balance of the night sky."
+  }
+],
     calendar: {
       title: 'Aztec Dual Calendar — Tonalpohualli & Xiuhpohualli',
       system: 'The Aztecs operated two interlocking calendars simultaneously: the 260-day sacred Tonalpohualli (20 day-signs × 13 numbers) and the 365-day solar Xiuhpohualli (18 months × 20 days + 5 nemontemi). These meshed like cogwheels, producing a unique date once every 52 years (18,980 days) — the Calendar Round.',
