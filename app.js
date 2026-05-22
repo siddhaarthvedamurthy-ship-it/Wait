@@ -1127,10 +1127,115 @@ const CIVS = {
       }
     ],
     stars: [
-      { name: 'Velli', modern: 'Venus (Tamil)', ra0: 180.0, dec0: -2.0, mag: -4.6, color: '#FFD080', myth: 'Velli ("Silver") — Venus in Tamil astronomy. The ancient Tamil Sangam poems reference Velli as the bright silver star heralding dawn in the Mullai (pastoral) landscape, sung by shepherdesses awaiting their lovers.', mass: '4.87×10²⁴ kg', distance: '38.2M km', radius: '6051 km' },
-      { name: 'Rohini (Tamil)', modern: 'Aldebaran (α Tauri)', ra0: 68.98, dec0: 16.5, mag: 0.85, color: '#FF8040', myth: 'Shared with Vedic tradition — Rohini is the red star of the harvest moon and the nakshatra of the planting season. In Tamil tradition associated with Karthigai Deepam (Festival of Lights in Karthikai month, November–December).', mass: '16.2 M☉', distance: '65 ly', radius: '44 R☉' },
-      { name: 'Karthigai', modern: 'Pleiades (η Tauri)', ra0: 56.87, dec0: 24.1, mag: 2.87, color: '#C0D0FF', myth: 'Karthigai — the Pleiades in Tamil, the star-cluster of the Karthigai festival (November–December), when millions of oil lamps are lit across Tamil Nadu. The six stars are the six mothers who nursed Murugan. The Karthigai Deepam festival at Tiruvannamalai sees a huge beacon lit atop the hill visible for 30km.', mass: '6 M☉', distance: '444 ly', radius: '10 R☉' }
-    ],
+  {
+    "tamilName": "Puravi (புரவி)",
+    "literalMeaning": "The Horse",
+    "modernName": "Hamal (Alpha Arietis)",
+    "rightAscension": "02h 07m 10.4s",
+    "declination": "+23° 27' 45\"",
+    "magnitude": 2.01,
+    "mythology": "The native Sangam Tamil name for the first segment of the night sky, symbolizing the swift cosmic horse marking the dawn of the celestial track."
+  },
+  {
+    "tamilName": "Aduppu (அடுப்பு)",
+    "literalMeaning": "The Hearth / Cooking Stove",
+    "modernName": "Sheratan (Beta Arietis)",
+    "rightAscension": "01h 54m 38.4s",
+    "declination": "+20° 48' 29\"",
+    "magnitude": 2.64,
+    "mythology": "Named for its distinct three-stone triangular orientation in the night sky, personified as the celestial cooking hearth."
+  },
+  {
+    "tamilName": "Aral / Aru-Meen (ஆரல்)",
+    "literalMeaning": "The Sharp Weapon / The Six Stars",
+    "modernName": "Alcyone (Eta Tauri / Pleiades)",
+    "rightAscension": "03h 47m 29.1s",
+    "declination": "+24° 06' 18\"",
+    "magnitude": 2.85,
+    "mythology": "Deeply revered in classical Tamil literature as a fire spike or sharp weapon. Associated with Murugan (Karthikeya) and the six celestial maidens."
+  },
+  {
+    "tamilName": "Chakkaram / Chem-Meen (சக்கரம்)",
+    "literalMeaning": "The Wheel / The Red Star",
+    "modernName": "Aldebaran (Alpha Tauri)",
+    "rightAscension": "04h 35m 55.2s",
+    "declination": "+16° 30' 33\"",
+    "magnitude": 0.85,
+    "mythology": "Celebrated for its brilliant reddish hue, it was envisioned as a cosmic chariot wheel driving the celestial timeline forward."
+  },
+  {
+    "tamilName": "Maan-Thalai (மான்தலை)",
+    "literalMeaning": "The Deer's Head",
+    "modernName": "Meissa (Lambda Orionis)",
+    "rightAscension": "05h 35m 08.3s",
+    "declination": "+09° 56' 03\"",
+    "magnitude": 3.39,
+    "mythology": "Tracked by ancient Tamil astronomers as the delicate head of a celestial deer leaping across the Orion region."
+  },
+  {
+    "tamilName": "Moothirai (மூதிரை)",
+    "literalMeaning": "The Rain Drop / Tear Drop",
+    "modernName": "Betelgeuse (Alpha Orionis)",
+    "rightAscension": "05h 55m 10.3s",
+    "declination": "+07° 24' 25\"",
+    "magnitude": 0.50,
+    "mythology": "A massive red supergiant seen as a singular, heavy cosmic droplet, marking shifts in moisture and seasonal atmosphere."
+  },
+  {
+    "tamilName": "Kazhai (கழை)",
+    "literalMeaning": "The Bamboo Stalk",
+    "modernName": "Castor (Alpha Geminorum)",
+    "rightAscension": "07h 34m 36.0s",
+    "declination": "+31° 53' 18\"",
+    "magnitude": 1.58,
+    "mythology": "Personified as a straight, rigid bamboo stalk holding up structural points of the northern sky pathway."
+  },
+  {
+    "tamilName": "Kaarkulam (காற்குளம்)",
+    "literalMeaning": "The Rain Pond",
+    "modernName": "Asellus Australis (Delta Cancri)",
+    "rightAscension": "08h 44m 41.1s",
+    "declination": "+18° 09' 15\"",
+    "magnitude": 3.94,
+    "mythology": "A stellar region tracked in early Tamil culture to predict precipitation levels and the filling of irrigation tanks."
+  },
+  {
+    "tamilName": "Kat-Chevi (கட்செவி)",
+    "literalMeaning": "The Snake (Eye-Ear)",
+    "modernName": "Alphard (Alpha Hydrae)",
+    "rightAscension": "09h 27m 35.2s",
+    "declination": "-08° 39' 31\"",
+    "magnitude": 1.99,
+    "mythology": "Literally translating to 'Eye-Ear', mapping the stealthy nature of a serpent guarding the dark equatorial skies."
+  },
+  {
+    "tamilName": "Kodu-Nugam (கொடுநுகம்)",
+    "literalMeaning": "The Curved Yoke / Plough Handle",
+    "modernName": "Regulus (Alpha Leonis)",
+    "rightAscension": "10h 08m 22.3s",
+    "declination": "+11° 58' 02\"",
+    "magnitude": 1.35,
+    "mythology": "An immensely bright star visualized as the curved handle of a heavy agricultural plough, tying astronomy directly to farming cycles."
+  },
+  {
+    "tamilName": "Vada-Meen (வடமீன்)",
+    "literalMeaning": "The Northern Star",
+    "modernName": "Alcor (80 Ursae Majoris)",
+    "rightAscension": "13h 25m 13.5s",
+    "declination": "+54° 59' 17\"",
+    "magnitude": 3.99,
+    "mythology": "An essential northern binary point frequently cited in Sangam literature as a symbol of structural balance and marital fidelity."
+  },
+  {
+    "tamilName": "Mudhal-Meen (முதல்மீன்)",
+    "literalMeaning": "The First Star",
+    "modernName": "Shaula (Lambda Scorpii)",
+    "rightAscension": "17h 33m 36.5s",
+    "declination": "-37° 06' 14\"",
+    "magnitude": 1.62,
+    "mythology": "Located directly toward the dense Galactic Center, recognized by Tamil stargazers as the foundational root or origin star."
+  }
+],
     calendar: {
       title: 'Tamil Calendar — Panchangam and the 60-Year Cycle',
       system: 'The Tamil calendar is a lunisolar system based on the 60-year (Sashti Abdha) cycle of Jupiter, integrated with Vedic Panchanga elements. The Tamil solar month begins when the sun transits into each zodiac sign (Rashi Sankraman). Month names are derived from the ruling nakshatra at full moon.',
@@ -1275,10 +1380,223 @@ const CIVS = {
       }
     ],
     stars: [
-      { name: 'Tian Lang (Heavenly Wolf)', modern: 'Sirius (α Canis Majoris)', ra0: 101.29, dec0: -16.72, mag: -1.46, color: '#FF4060', myth: 'Tian Lang (Heavenly Wolf) — Sirius in Chinese astronomy. The Heavenly Wolf was associated with warfare, military strategy, and the hunt. It was one of the most carefully tracked stars — its position relative to the Moon determined military omens in the Shi Ji (Grand Historian\'s Records). When Tian Lang appeared exceptionally bright, it portended invasion from the north.', mass: '2.03 M☉', distance: '8.6 ly', radius: '1.711 R☉' },
-      { name: 'Zhinü (Weaving Girl)', modern: 'Vega (α Lyrae)', ra0: 279.23, dec0: 38.78, mag: 0.03, color: '#C0D8FF', myth: 'Zhinü, the Weaving Girl, and Niulang (Cowherd, Altair) are separated by the Silver River (Milky Way) and allowed to meet only once a year on the 7th day of the 7th lunar month (Qixi Festival — the Chinese Valentine\'s Day). Magpies form a bridge across the Milky Way so the lovers can cross. The two stars appear as the two brightest objects flanking the Milky Way.', mass: '2.14 M☉', distance: '25 ly', radius: '2.36 R☉' },
-      { name: 'Bei Ji (North Pole Star)', modern: 'Thuban (α Draconis) / Polaris', ra0: 37.95, dec0: 89.26, mag: 1.98, color: '#FFD0D0', myth: 'Bei Ji ("North Pole") — the Purple Forbidden Enclosure (Ziwei Yuan) surrounds the pole star. The Ziwei system divides the sky into three enclosures and 28 lunar mansions (Xiu). The emperor\'s Forbidden City (Zijin Cheng) was named for and aligned with the celestial Purple Palace. At 2800 BCE, Thuban (α Draconis) was the pole star — used to orient the Great Pyramid and early Chinese observations.', mass: '5.4 M☉', distance: '433 ly', radius: '50 R☉' }
-    ],
+  {
+    "chineseMansion": "Jiǎo (角)",
+    "literalMeaning": "The Horn",
+    "modernName": "Spica (Alpha Virginis)",
+    "rightAscension": "13h 25m 11.6s",
+    "declination": "-11° 09' 41\"",
+    "magnitude": 0.98,
+    "mythology": "The literal horn of the Azure Dragon marking the start of the spring season. Used in China to predict agricultural timelines, while its Vedic parallel Chitrā marked the transition into spring months."
+  },
+  {
+    "chineseMansion": "Dī (氐)",
+    "literalMeaning": "The Root or Base",
+    "modernName": "Zubenelgenubi (Alpha Librae)",
+    "rightAscension": "14h 50m 52.7s",
+    "declination": "-16° 02' 30\"",
+    "magnitude": 2.75,
+    "mythology": "Tracked as the foundational root base of the Azure Dragon constellation. Its split shape was mirrored in the Vedic system as Viśākhā, a wide triumphal arch."
+  },
+  {
+    "chineseMansion": "Xīn (心)",
+    "literalMeaning": "The Heart",
+    "modernName": "Antares (Alpha Scorpii)",
+    "rightAscension": "16h 29m 24.4s",
+    "declination": "-26° 25' 55\"",
+    "magnitude": 1.06,
+    "mythology": "Tracked explicitly as the 'Heart of the Dragon.' Imperial astronomers used its intense red color variations to predict the personal fortune and health of the Emperor."
+  },
+  {
+    "chineseMansion": "Shì (室)",
+    "literalMeaning": "The Encampment",
+    "modernName": "Markab (Alpha Pegasi)",
+    "rightAscension": "23h 04m 45.7s",
+    "declination": "+15° 12' 19\"",
+    "magnitude": 2.49,
+    "mythology": "Used by Chinese astronomers as a cosmic blueprint to schedule the physical construction and architectural layout of imperial palace grounds during autumn."
+  },
+  {
+    "chineseMansion": "Lóu (婁)",
+    "literalMeaning": "The Bond or Lasso",
+    "modernName": "Sheratan (Beta Arietis)",
+    "rightAscension": "01h 54m 38.4s",
+    "declination": "+20° 48' 29\"",
+    "magnitude": 2.64,
+    "mythology": "Tracked as a celestial gathering hub used to coordinate national trade markets, livestock assemblies, and seasonal gatherings."
+  },
+  {
+    "chineseMansion": "Mǎo (昴)",
+    "literalMeaning": "The Hairy Head",
+    "modernName": "Alcyone (Eta Tauri / Pleiades)",
+    "rightAscension": "03h 47m 29.1s",
+    "declination": "+24° 06' 18\"",
+    "magnitude": 2.85,
+    "mythology": "A dense cluster representing an old warrior's head, heavily utilized to calculate the exact timing for late-autumn agricultural harvests."
+  },
+  {
+    "chineseMansion": "Zī (觜)",
+    "literalMeaning": "The Turtle Beak",
+    "modernName": "Meissa (Lambda Orionis)",
+    "rightAscension": "05h 35m 08.3s",
+    "declination": "+09° 56' 03\"",
+    "magnitude": 3.39,
+    "mythology": "Located at the tip of Orion, Chinese stargazers mapped this grouping as the sharp beak of a protective celestial turtle."
+  },
+  {
+    "chineseMansion": "Xīng (星)",
+    "literalMeaning": "The Star",
+    "modernName": "Alphard (Alpha Hydrae)",
+    "rightAscension": "09h 27m 35.2s",
+    "declination": "-08° 39' 31\"",
+    "magnitude": 1.99,
+    "mythology": "A solitary bright star in a dark void. Used by imperial court astronomers as a major baseline clock star to determine the absolute peak of mid-summer."
+  },
+  {
+    "chineseMansion": "Zhěn (軫)",
+    "literalMeaning": "The Chariot",
+    "modernName": "Algorab (Gamma Corvi)",
+    "rightAscension": "12h 15m 48.4s",
+    "declination": "-17° 32' 31\"",
+    "magnitude": 2.93,
+    "mythology": "A five-star cluster grouped together by Chinese observers to represent the sturdy, square structural base of a moving imperial war chariot."
+  },
+  {
+    "chineseMansion": "Kàng (亢)",
+    "literalMeaning": "The Neck",
+    "modernName": "Kappa Virginis",
+    "rightAscension": "14h 12m 53.7s",
+    "declination": "-10° 16' 27\"",
+    "magnitude": 4.15,
+    "mythology": "Anchored on this dim star to map the physical neck of the Azure Dragon. Contrastingly, the Vedic system ignored this star entirely, opting for the ultra-bright Arcturus."
+  },
+  {
+    "chineseMansion": "Fáng (房)",
+    "literalMeaning": "The Room",
+    "modernName": "Pi Scorpii",
+    "rightAscension": "15h 58m 51.1s",
+    "declination": "-26° 06' 51\"",
+    "magnitude": 2.89,
+    "mythology": "Anchored on the side of the constellation to mark the inner chamber of the Dragon framework. The Vedic parallel Anurādhā instead used Delta Scorpii."
+  },
+  {
+    "chineseMansion": "Wěi (尾)",
+    "literalMeaning": "The Tail",
+    "modernName": "Mu-1 Scorpii",
+    "rightAscension": "16h 51m 52.2s",
+    "declination": "-38° 02' 50\"",
+    "magnitude": 3.01,
+    "mythology": "Tracks the powerful curling tail of the Azure Dragon. While both cultures saw a tail here, the Vedic system anchored Mūla on the brighter stinger star, Shaula."
+  },
+  {
+    "chineseMansion": "Jī (箕)",
+    "literalMeaning": "The Winnowing Basket",
+    "modernName": "Gamma Sagittarii",
+    "rightAscension": "18h 05m 48.5s",
+    "declination": "-29° 34' 48\"",
+    "magnitude": 2.98,
+    "mythology": "Used to form the crucial outer corner of an agricultural winnowing basket, mapping farming tools into the sky."
+  },
+  {
+    "chineseMansion": "Dǒu (斗)",
+    "literalMeaning": "The Dipper",
+    "modernName": "Phi Sagittarii",
+    "rightAscension": "18h 45m 39.3s",
+    "declination": "-26° 59' 27\"",
+    "magnitude": 3.17,
+    "mythology": "Used to map out the functional handle of the Southern Dipper within the Black Tortoise quadrant."
+  },
+  {
+    "chineseMansion": "Niú (牛)",
+    "literalMeaning": "The Ox",
+    "modernName": "Beta Capricorni",
+    "rightAscension": "20h 21m 00.6s",
+    "declination": "-14° 46' 53\"",
+    "magnitude": 3.05,
+    "mythology": "Tracked along the ecliptic to dictate the state herding seasons. This sits at a massive physical distance gap from its Vedic counterpart Abhijit (Vega)."
+  },
+  {
+    "chineseMansion": "Nǚ (女)",
+    "literalMeaning": "The Girl",
+    "modernName": "Epsilon Aquarii",
+    "rightAscension": "20h 47m 40.5s",
+    "declination": "-09° 29' 45\"",
+    "magnitude": 4.77,
+    "mythology": "A dim star tracked inside the northern quadrant. The Vedic Aryans completely bypassed this faint patch of sky to anchor on the brilliant star Altair."
+  },
+  {
+    "chineseMansion": "Xū (虛)",
+    "literalMeaning": "The Emptiness",
+    "modernName": "Beta Aquarii",
+    "rightAscension": "21h 31m 33.5s",
+    "declination": "-05° 34' 16\"",
+    "magnitude": 2.91,
+    "mythology": "Marked a bleak, stark winter void in the imperial calendar system, whereas the Vedic parallel tracked the compact diamond of Delphinus."
+  },
+  {
+    "chineseMansion": "Wēi (危)",
+    "literalMeaning": "The Rooftop",
+    "modernName": "Alpha Aquarii",
+    "rightAscension": "22h 05m 47.0s",
+    "declination": "-00° 19' 11\"",
+    "magnitude": 2.95,
+    "mythology": "Visualized as the structural peak of a high roof ridge. Its Vedic counterpart focused instead on a hundred celestial healers anchored at Gamma Aquarii."
+  },
+  {
+    "chineseMansion": "Bì (壁)",
+    "literalMeaning": "The Wall",
+    "modernName": "Gamma Pegasi",
+    "rightAscension": "00h 13m 14.2s",
+    "declination": "+15° 11' 01\"",
+    "magnitude": 2.83,
+    "mythology": "Mapped to represent the fortified eastern boundary wall protecting the celestial imperial palace grounds."
+  },
+  {
+    "chineseMansion": "Kuí (奎)",
+    "literalMeaning": "The Legs",
+    "modernName": "Eta Andromedae",
+    "rightAscension": "00h 57m 12.4s",
+    "declination": "+23° 25' 04\"",
+    "magnitude": 4.42,
+    "mythology": "Tracked to carefully construct the wide, striding legs of a great celestial figure walking across the western sky."
+  },
+  {
+    "chineseMansion": "Wèi (胃)",
+    "literalMeaning": "The Stomach",
+    "modernName": "35 Arietis",
+    "rightAscension": "02h 43m 27.1s",
+    "declination": "+12° 14' 17\"",
+    "magnitude": 4.65,
+    "mythology": "Chosen specifically to represent the swelling stomach of a fat, prosperous imperial food granary."
+  },
+  {
+    "chineseMansion": "Bì (畢)",
+    "literalMeaning": "The Net",
+    "modernName": "Epsilon Tauri",
+    "rightAscension": "04h 28m 36.9s",
+    "declination": "+19° 10' 49\"",
+    "magnitude": 3.53,
+    "mythology": "Marks the upper trapping edge of an active celestial hunting net, while its Vedic counterpart focused heavily on the red giant star Aldebaran."
+  },
+  {
+    "chineseMansion": "Shēn (参)",
+    "literalMeaning": "Three Stars",
+    "modernName": "Zeta Orionis",
+    "rightAscension": "05h 40m 45.5s",
+    "declination": "-01° 56' 34\"",
+    "magnitude": 1.74,
+    "mythology": "Anchored directly on Orion's Belt to track three legendary warriors standing in unison. The Vedic system skipped the belt entirely for Betelgeuse."
+  },
+  {
+    "chineseMansion": "Jǐng (井)",
+    "literalMeaning": "The Well",
+    "modernName": "Mu Geminorum",
+    "rightAscension": "06h 22m 57.6s",
+    "declination": "+22° 30' 49\"",
+    "magnitude": 2.87,
+    "mythology": "Marks the boundary opening of the celestial well within the Vermilion Bird quadrant, tracking moisture and cosmic water sources."
+  }
+],
     calendar: {
       title: 'Chinese Lunisolar Calendar — Heavenly Stems and Earthly Branches',
       system: 'The Chinese calendar is lunisolar — months follow the Moon, while the year tracks the Sun, with intercalary months added every ~3 years. Its most distinctive feature is the sexagenary cycle: 10 Heavenly Stems (Tiangan) × 12 Earthly Branches (Dizhi) = 60-year cycle, governing personal fate, politics, and cosmic rhythm.',
