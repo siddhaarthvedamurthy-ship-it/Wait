@@ -966,10 +966,106 @@ const CIVS = {
       }
     ],
     stars: [
-      { name: 'Inti Huayna', modern: 'Venus (Chasca)', ra0: 180.0, dec0: -2.0, mag: -4.6, color: '#FFFF60', myth: 'Chasca ("Disheveled One") — the Inca name for Venus, the page of the Sun. As morning and evening star it announced Inti\'s departure and arrival. The Inca tracked Venus with Ceques (sacred lines radiating from the Coricancha) that aligned with celestial risings and settings across the Cusco horizon.', mass: '4.87×10²⁴ kg', distance: '38.2M km', radius: '6051 km' },
-      { name: 'Orqo Ciela', modern: 'Southern Cross (Crux)', ra0: 187.8, dec0: -57.1, mag: 0.77, color: '#80C8FF', myth: 'The Southern Cross was the primary navigation star for Andean peoples. The Inca saw in the dark patches of the Milky Way a series of "dark constellations" — the Serpent (Machacuay), Toad (Hampatu), Llama (Yacana), Fox, Partridge — negative space figures traced by dust clouds rather than stars.', mass: '14.5 M☉ (Acrux)', distance: '320 ly', radius: '7.8 R☉' },
-      { name: 'Yacana (Dark Llama)', modern: 'Milky Way Dark Cloud (Coalsack)', ra0: 190.0, dec0: -63.0, mag: 0, color: '#405080', myth: 'Yacana — the great dark Llama constellation traced by the Coalsack Nebula and surrounding dark clouds in the Milky Way. The Inca were unique in recognizing "dark constellations" — figures traced by the absence of stars. Yacana drinks from the sea at midnight during the zenith transit to prevent floods. A mother llama with her baby.', mass: 'Dark nebula (dust)', distance: '600 ly', radius: '4 ly extent' }
-    ],
+  {
+    "incaName": "Chaska Quyllur",
+    "literalMeaning": "The Ultimate Shaggy Star",
+    "modernName": "Sirius (Alpha Canis Majoris)",
+    "rightAscension": "06h 45m 08.9s",
+    "declination": "-16° 42' 58\"",
+    "magnitude": -1.46,
+    "mythology": "Personified as the ultimate, shaggy protector of all bright stars in the night sky, radiating intense power."
+  },
+  {
+    "incaName": "Pachapacariq Chaska",
+    "literalMeaning": "The Cosmic Morning Anchor",
+    "modernName": "Canopus (Alpha Carinae)",
+    "rightAscension": "06h 23m 57.1s",
+    "declination": "-52° 41' 44\"",
+    "magnitude": -0.74,
+    "mythology": "Revered as the cosmic morning anchor responsible for controlling and bringing forth the dawn each day."
+  },
+  {
+    "incaName": "Chakana Tupa",
+    "literalMeaning": "The Royal Stairway Capstone",
+    "modernName": "Acrux (Alpha Crucis)",
+    "rightAscension": "12h 26m 35.9s",
+    "declination": "-63° 05' 57\"",
+    "magnitude": 0.77,
+    "mythology": "The top architectural stone of the celestial stairway (Chakana), bridging the underworld, the earthly realm, and the heavens."
+  },
+  {
+    "incaName": "Chakana Suyu",
+    "literalMeaning": "The Boundary Stairway Stone",
+    "modernName": "Gacrux (Gamma Crucis)",
+    "rightAscension": "12h 31m 10.0s",
+    "declination": "-57° 06' 48\"",
+    "magnitude": 1.59,
+    "mythology": "The lower boundary stone completing the Southern Cross axis, defining spatial order and sacred celestial alignment."
+  },
+  {
+    "incaName": "Llamacñawin",
+    "literalMeaning": "The Eye of the Llama",
+    "modernName": "Alpha Centauri (Rigil Kentaurus)",
+    "rightAscension": "14h 39m 36.5s",
+    "declination": "-60° 50' 02\"",
+    "magnitude": -0.27,
+    "mythology": "The primary glowing eye of the great celestial Llama dark-cloud constellation, vital for pastoral and agricultural cycles."
+  },
+  {
+    "incaName": "Llamacñawin Iskay",
+    "literalMeaning": "The Second Eye of the Llama",
+    "modernName": "Beta Centauri (Hadar)",
+    "rightAscension": "14h 03m 49.4s",
+    "declination": "-60° 22' 23\"",
+    "magnitude": 0.61,
+    "mythology": "The second eye of the celestial Llama, pairing with Alpha Centauri to watch over the Andean valleys from high above."
+  },
+  {
+    "incaName": "Chuqi Chinchay",
+    "literalMeaning": "The Golden Jaguar",
+    "modernName": "Antares (Alpha Scorpii)",
+    "rightAscension": "16h 29m 24.4s",
+    "declination": "-26° 25' 55\"",
+    "magnitude": 1.06,
+    "mythology": "The fierce Golden Jaguar deity responsible for protecting herding animals, especially llamas and alpacas, from predators."
+  },
+  {
+    "incaName": "Chuchi Quyllur",
+    "literalMeaning": "The Hen Star",
+    "modernName": "Rigel (Beta Orionis)",
+    "rightAscension": "05h 14m 32.3s",
+    "declination": "-08° 12' 06\"",
+    "magnitude": 0.13,
+    "mythology": "Personified as the divine Mother Hen fiercely guarding and guiding her smaller stellar chicks across the sky."
+  },
+  {
+    "incaName": "Hatun Chaska",
+    "literalMeaning": "The Supreme Great Star",
+    "modernName": "Vega (Alpha Lyrae)",
+    "rightAscension": "18h 36m 56.3s",
+    "declination": "+38° 47' 01\"",
+    "magnitude": 0.03,
+    "mythology": "The supreme weaver goddess who watches over textile artisans, spinning cosmic threads across the sky."
+  },
+  {
+    "incaName": "Taruka",
+    "literalMeaning": "The Wild Deer Horn",
+    "modernName": "Castor (Alpha Geminorum)",
+    "rightAscension": "07h 34m 36.0s",
+    "declination": "+31° 53' 18\"",
+    "magnitude": 1.58,
+    "mythology": "The sharp horn of the celestial wild deer caught in the act of leaping across the great cosmic river (the Milky Way)."
+  },
+  {
+    "incaName": "Taruka Iskay",
+    "literalMeaning": "The Second Wild Deer Flank",
+    "modernName": "Pollux (Beta Geminorum)",
+    "rightAscension": "07h 45m 18.9s",
+    "declination": "+28° 01' 34\"",
+    "magnitude": 1.14,
+    "mythology": "The powerful flank of the jumping celestial wild deer, maintaining its momentum across the starfield."
+  }
+],
     calendar: {
       title: 'Inca Calendar — Ceque System and Solar-Lunar Integration',
       system: 'The Inca calendar was both solar and lunar, structured through the revolutionary Ceque system: 41 sacred lines radiating from the Coricancha temple through Cusco, dividing the year into segments. 328 shrines along these lines (328 = approximately 12 sidereal months) marked the passage of time.',
