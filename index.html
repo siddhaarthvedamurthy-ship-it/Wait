@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pantheon of the Skies — Global Archaeo-Astronomy Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;900&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- FULL-SCREEN BACKGROUND LAYER -->
+<div id="bg-layer" class="bg-layer"></div>
+<div id="bg-overlay" class="bg-overlay"></div>
+
+<!-- STAR CANVAS BACKGROUND -->
+<canvas id="star-canvas"></canvas>
+
+<!-- MODAL OVERLAY -->
+<div id="modal-overlay" class="modal-overlay hidden">
+  <div id="modal-glass" class="modal-glass">
+    <button id="modal-close" class="modal-close">✕</button>
+    <div id="modal-content" class="modal-content"></div>
+  </div>
+</div>
+
+<!-- MAIN APP WRAPPER -->
+<div id="app">
+
+  <!-- HEADER -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="header-title-block">
+        <div class="header-subtitle">Archaeo-Astronomy Simulator</div>
+        <h1 class="header-title">PANTHEON OF THE SKIES</h1>
+        <div class="header-tagline">Ten Civilizations · Ten Thousand Years · One Cosmos</div>
+      </div>
+      <div class="header-epoch">
+        <div class="epoch-label">CURRENT EPOCH</div>
+        <div id="epoch-display" class="epoch-display">2000 BCE</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CIVILIZATION SELECTOR -->
+  <nav class="civ-nav">
+    <div class="civ-nav-inner">
+      <button class="civ-btn active" data-civ="vedic">
+        <span class="civ-btn-icon">☽</span>
+        <span class="civ-btn-label">Vedic India</span>
+      </button>
+      <button class="civ-btn" data-civ="egypt">
+        <span class="civ-btn-icon">𓂀</span>
+        <span class="civ-btn-label">Ancient Egypt</span>
+      </button>
+      <button class="civ-btn" data-civ="greece">
+        <span class="civ-btn-icon">⚡</span>
+        <span class="civ-btn-label">Classical Greece</span>
+      </button>
+      <button class="civ-btn" data-civ="babylon">
+        <span class="civ-btn-icon">★</span>
+        <span class="civ-btn-label">Babylonia</span>
+      </button>
+      <button class="civ-btn" data-civ="aztec">
+        <span class="civ-btn-icon">☀</span>
+        <span class="civ-btn-label">Aztec Empire</span>
+      </button>
+      <button class="civ-btn" data-civ="maya">
+        <span class="civ-btn-icon">◉</span>
+        <span class="civ-btn-label">Maya</span>
+      </button>
+      <button class="civ-btn" data-civ="inca">
+        <span class="civ-btn-icon">◈</span>
+        <span class="civ-btn-label">Inca Empire</span>
+      </button>
+      <button class="civ-btn" data-civ="dravidian">
+        <span class="civ-btn-icon">✦</span>
+        <span class="civ-btn-label">Dravidian</span>
+      </button>
+      <button class="civ-btn" data-civ="seasia">
+        <span class="civ-btn-icon">❋</span>
+        <span class="civ-btn-label">SE Asia</span>
+      </button>
+      <button class="civ-btn" data-civ="china">
+        <span class="civ-btn-icon">龍</span>
+        <span class="civ-btn-label">Imperial China</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT AREA -->
+  <main class="main-content">
+
+    <!-- LEFT COLUMN: DEITY CARDS -->
+    <section class="deity-section">
+      <div class="section-header">
+        <h2 class="section-title" id="deity-section-title">Divine Pantheon</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div id="deity-grid" class="deity-grid">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- CENTER COLUMN: STAR MAP -->
+    <section class="starmap-section">
+      <div class="section-header">
+        <h2 class="section-title">Sacred Stars</h2>
+        <div class="section-rule"></div>
+      </div>
+      <!-- TIME SLIDER -->
+      <div class="time-controls">
+        <span class="slider-label">8000 BCE</span>
+        <input type="range" id="epoch-slider" min="-8000" max="2026" value="-2000" step="50" />
+        <span class="slider-label">2026 CE</span>
+      </div>
+      <div id="starmap-container" class="starmap-container">
+        <canvas id="starmap-canvas" width="520" height="420"></canvas>
+        <div id="star-labels" class="star-labels"></div>
+      </div>
+      <div id="star-info-bar" class="star-info-bar">
+        <span>Click a star to reveal its cosmic profile</span>
+      </div>
+    </section>
+
+    <!-- RIGHT COLUMN: CALENDAR + TABS -->
+    <section class="calendar-section">
+      <div class="section-header">
+        <h2 class="section-title">Sacred Calendar</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="tab-bar">
+        <button class="tab-btn active" data-tab="calendar">Calendar</button>
+        <button class="tab-btn" data-tab="cycles">Cycles</button>
+        <button class="tab-btn" data-tab="lore">Cosmic Lore</button>
+      </div>
+      <div id="tab-calendar" class="tab-panel active">
+        <div id="calendar-content" class="calendar-content"></div>
+      </div>
+      <div id="tab-cycles" class="tab-panel hidden">
+        <div id="cycles-content" class="cycles-content"></div>
+      </div>
+      <div id="tab-lore" class="tab-panel hidden">
+        <div id="lore-content" class="lore-content"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <span>Pantheon of the Skies &mdash; Archaeo-Astronomy Simulator</span>
+      <span class="footer-civ-name" id="footer-civ-name">Vedic India</span>
+      <span>Precession-corrected epoch rendering active</span>
+    </div>
+  </footer>
+
+</div><!-- end #app -->
+
+<script src="app.js"></script>
+</body>
+</html>
